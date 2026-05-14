@@ -1,0 +1,7 @@
+node_modules/
+database/bbs.db
+database/*.db
+uploads/
+scratch/
+.env
+.DS_Store

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaNiAc BBS</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+    
+    <div id="theme-toggle" title="Gece/Gündüz Modu">🌓</div>
+    <div id="terminal-container">
+        <div id="terminal"></div>
+        <input type="file" id="file-input" style="display: none;" />
+    </div>
+
+    <!-- Nostaljik Sesler -->
+    <audio id="modem-sound" src="https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptoken=6694602f-6821-4d3f-8461-9f9353957262" preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
