@@ -36,6 +36,11 @@ term.onData((data) => {
     socket.emit('data', data);
 });
 
+// Bağlantı koptuğunda uyarı ver
+socket.on('disconnect', () => {
+    term.write('\r\n\x1b[1;31m[ BAĞLANTI KESİLDİ ]\x1b[0m\r\n');
+});
+
 // Modem Sesi Yönetimi
 socket.on('play-modem-sound', () => {
     const sound = document.getElementById('modem-sound');
@@ -62,6 +67,11 @@ if (themeToggle) {
 }
 
 socket.on('toggle-theme', toggleTheme);
+
+// Dosya indirme tetikleyicisi
+socket.on('trigger-download', (url) => {
+    window.location.href = url;
+});
 
 // Dosya seçme tetikleyicisi
 socket.on('trigger-file-picker', (areaId) => {

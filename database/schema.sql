@@ -36,6 +36,11 @@ CREATE TABLE IF NOT EXISTS player_stats (
     level INTEGER DEFAULT 1,
     exp INTEGER DEFAULT 0,
     stamina INTEGER DEFAULT 15,
+    weapon INTEGER DEFAULT 0,
+    armor INTEGER DEFAULT 0,
+    potion_s INTEGER DEFAULT 0,
+    potion_m INTEGER DEFAULT 0,
+    potion_l INTEGER DEFAULT 0,
     last_rest DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -82,5 +87,17 @@ CREATE TABLE IF NOT EXISTS chat_messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     author_id INTEGER REFERENCES users(id),
     message TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Çevrimdışı Posta Kutusu (Offline PM)
+CREATE TABLE IF NOT EXISTS private_messages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender_id INTEGER REFERENCES users(id),
+    receiver_id INTEGER REFERENCES users(id),
+    subject TEXT,
+    body TEXT,
+    parent_id INTEGER DEFAULT NULL,
+    is_read INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
